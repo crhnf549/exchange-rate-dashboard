@@ -1,0 +1,145 @@
+[debug] [2026-02-15T03:34:03.821Z] ----------------------------------------------------------------------
+[debug] [2026-02-15T03:34:03.824Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\crhnf\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions --project alpine-run-365610 --debug --non-interactive
+[debug] [2026-02-15T03:34:03.824Z] CLI Version:   15.6.0
+[debug] [2026-02-15T03:34:03.824Z] Platform:      win32
+[debug] [2026-02-15T03:34:03.824Z] Node Version:  v20.12.2
+[debug] [2026-02-15T03:34:03.824Z] Time:          Sun Feb 15 2026 12:34:03 GMT+0900 (GMT+09:00)
+[debug] [2026-02-15T03:34:03.824Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-15T03:34:04.867Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-15T03:34:04.868Z] > authorizing via signed-in user (crhnf549@gmail.com)
+[debug] [2026-02-15T03:34:04.869Z] [iam] checking project alpine-run-365610 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-02-15T03:34:04.870Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:04.870Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:04.871Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610:testIamPermissions [none]
+[debug] [2026-02-15T03:34:04.871Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610:testIamPermissions  x-goog-user-project=alpine-run-365610
+[debug] [2026-02-15T03:34:04.871Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-15T03:34:05.621Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610:testIamPermissions 200
+[debug] [2026-02-15T03:34:05.622Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-02-15T03:34:05.622Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:05.622Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:05.623Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/alpine-run-365610/serviceAccounts/alpine-run-365610@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-02-15T03:34:05.623Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/alpine-run-365610/serviceAccounts/alpine-run-365610@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-02-15T03:34:06.580Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/alpine-run-365610/serviceAccounts/alpine-run-365610@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2026-02-15T03:34:06.580Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/alpine-run-365610/serviceAccounts/alpine-run-365610@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2026-02-15T03:34:06.581Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/alpine-run-365610/serviceAccounts/alpine-run-365610@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/alpine-run-365610/serviceAccounts/alpine-run-365610@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'alpine-run-365610'...
+[info] 
+[info] i  deploying functions 
+[debug] [2026-02-15T03:34:06.584Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:06.585Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:06.586Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610 [none]
+[debug] [2026-02-15T03:34:06.778Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610 200
+[debug] [2026-02-15T03:34:06.778Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/alpine-run-365610 {"projectNumber":"120658363028","projectId":"alpine-run-365610","lifecycleState":"ACTIVE","name":"My First Project","labels":{"firebase":"enabled"},"createTime":"2022-10-15T10:37:29.679Z"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2026-02-15T03:34:06.780Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:06.781Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:06.781Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/alpine-run-365610/adminSdkConfig [none]
+[debug] [2026-02-15T03:34:07.115Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/alpine-run-365610/adminSdkConfig 200
+[debug] [2026-02-15T03:34:07.116Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/alpine-run-365610/adminSdkConfig {"projectId":"alpine-run-365610","storageBucket":"alpine-run-365610.firebasestorage.app"}
+[debug] [2026-02-15T03:34:07.117Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:07.118Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:07.118Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/alpine-run-365610/configs [none]
+[debug] [2026-02-15T03:34:07.702Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/alpine-run-365610/configs 200
+[debug] [2026-02-15T03:34:07.703Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/alpine-run-365610/configs {}
+[debug] [2026-02-15T03:34:07.704Z] Validating nodejs source
+[warn] !  functions: Runtime Node.js 20 will be deprecated on 2026-04-30 and will be decommissioned on 2026-10-30, after which you will not be able to deploy without upgrading. Consider upgrading now to avoid disruption. See https://cloud.google.com/functions/docs/runtime-support for full details on the lifecycle policy 
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2026-02-15T03:34:09.703Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1",
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2026-02-15T03:34:09.703Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase default to determine what to deploy 
+[info] i  functions: You are using a version of firebase-functions SDK (4.9.0) that does not have support for the newest Firebase Extensions features. Please update firebase-functions SDK to >=5.1.0 to use them correctly 
+[debug] [2026-02-15T03:34:09.704Z] Could not find functions.yaml. Must use http discovery
+[debug] [2026-02-15T03:34:09.711Z] Found firebase-functions binary at 'C:\Users\crhnf\.gemini\antigravity\scratch\exchange-rate-dashboard\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8412
+
+[debug] [2026-02-15T03:34:10.063Z] Got response from /__/functions.yaml {"endpoints":{"scheduledFetchPrice":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"scheduleTrigger":{"schedule":"0 * * * *","retryConfig":{"retryCount":null,"maxDoublings":null,"maxRetryDuration":null,"maxBackoffDuration":null,"minBackoffDuration":null},"timeZone":"Asia/Tokyo"},"labels":{},"entryPoint":"scheduledFetchPrice"}},"specVersion":"v1alpha1","requiredAPIs":[{"api":"cloudscheduler.googleapis.com","reason":"Needed for scheduled functions."}]}
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\crhnf\.gemini\antigravity\scratch\exchange-rate-dashboard\functions (79.05 KB) for uploading 
+[debug] [2026-02-15T03:34:15.111Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:15.111Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:15.111Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/alpine-run-365610/locations/-/functions [none]
+[debug] [2026-02-15T03:34:16.162Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/alpine-run-365610/locations/-/functions 200
+[debug] [2026-02-15T03:34:16.163Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/alpine-run-365610/locations/-/functions {}
+[debug] [2026-02-15T03:34:16.163Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:16.164Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:16.164Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/alpine-run-365610/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2026-02-15T03:34:17.533Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/alpine-run-365610/locations/-/functions 200
+[debug] [2026-02-15T03:34:17.534Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/alpine-run-365610/locations/-/functions {"functions":[{"name":"projects/alpine-run-365610/locations/asia-northeast1/functions/google_search2","buildConfig":{"build":"projects/120658363028/locations/asia-northeast1/builds/9d2d353f-10b7-47cb-81ab-80784739b7cd","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-asia-northeast1","object":"google_search2/function-source.zip","generation":"1716807424342683"}},"dockerRepository":"projects/alpine-run-365610/locations/asia-northeast1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-asia-northeast1","object":"google_search2/function-source.zip","generation":"1716807424342683"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/alpine-run-365610/locations/asia-northeast1/services/google-search2","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search2-4gtds7hkyq-an.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search2-00008-rim","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.850715677Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://asia-northeast1-alpine-run-365610.cloudfunctions.net/google_search2","createTime":"2024-05-26T12:21:42.354352943Z"},{"name":"projects/alpine-run-365610/locations/asia-northeast2/functions/google_search","buildConfig":{"build":"projects/120658363028/locations/asia-northeast2/builds/8a399ff1-09c3-4090-a44b-1728a8d1241f","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-asia-northeast2","object":"google_search/function-source.zip","generation":"1716807411940995"}},"dockerRepository":"projects/alpine-run-365610/locations/asia-northeast2/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-asia-northeast2","object":"google_search/function-source.zip","generation":"1716807411940995"}},"dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/alpine-run-365610/locations/asia-northeast2/services/google-search","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search-4gtds7hkyq-dt.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search-00016-zuf","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.816526061Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://asia-northeast2-alpine-run-365610.cloudfunctions.net/google_search","createTime":"2024-05-26T05:16:16.469160916Z"},{"name":"projects/alpine-run-365610/locations/asia-southeast1/functions/google_search7","buildConfig":{"build":"projects/120658363028/locations/asia-southeast1/builds/51641c3f-ae45-438a-b5d4-96ab99d1489d","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-asia-southeast1","object":"google_search7/function-source.zip","generation":"1716807500263569"}},"dockerRepository":"projects/alpine-run-365610/locations/asia-southeast1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-asia-southeast1","object":"google_search7/function-source.zip","generation":"1716807500263569"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/alpine-run-365610/locations/asia-southeast1/services/google-search7","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search7-4gtds7hkyq-as.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search7-00006-roy","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.893191320Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://asia-southeast1-alpine-run-365610.cloudfunctions.net/google_search7","createTime":"2024-05-26T13:02:48.988688320Z"},{"name":"projects/alpine-run-365610/locations/northamerica-northeast1/functions/google_search3","buildConfig":{"build":"projects/120658363028/locations/northamerica-northeast1/builds/1cf72a2f-0dea-4ce6-a56f-c0749826b184","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-northamerica-northeast1","object":"google_search3/function-source.zip","generation":"1716807440038864"}},"dockerRepository":"projects/alpine-run-365610/locations/northamerica-northeast1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-northamerica-northeast1","object":"google_search3/function-source.zip","generation":"1716807440038864"}},"dockerRegistry":"ARTIFACT_REGISTRY","automaticUpdatePolicy":{}},"serviceConfig":{"service":"projects/alpine-run-365610/locations/northamerica-northeast1/services/google-search3","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search3-4gtds7hkyq-nn.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search3-00007-cid","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.786272582Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://northamerica-northeast1-alpine-run-365610.cloudfunctions.net/google_search3","createTime":"2024-05-26T12:51:49.114172191Z"},{"name":"projects/alpine-run-365610/locations/southamerica-east1/functions/google_search6","buildConfig":{"build":"projects/120658363028/locations/southamerica-east1/builds/51dfbe39-227f-406d-9e6f-78678bc524a2","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-southamerica-east1","object":"google_search6/function-source.zip","generation":"1716807484916941"}},"dockerRepository":"projects/alpine-run-365610/locations/southamerica-east1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-southamerica-east1","object":"google_search6/function-source.zip","generation":"1716807484916941"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/alpine-run-365610/locations/southamerica-east1/services/google-search6","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search6-4gtds7hkyq-rj.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search6-00006-qax","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.879926421Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://southamerica-east1-alpine-run-365610.cloudfunctions.net/google_search6","createTime":"2024-05-26T13:07:54.210760671Z"},{"name":"projects/alpine-run-365610/locations/southamerica-west1/functions/google_search4","buildConfig":{"build":"projects/120658363028/locations/southamerica-west1/builds/01d57ccf-61e1-44ea-be11-3831e4521f04","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-southamerica-west1","object":"google_search4/function-source.zip","generation":"1716807454579990"}},"dockerRepository":"projects/alpine-run-365610/locations/southamerica-west1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-southamerica-west1","object":"google_search4/function-source.zip","generation":"1716807454579990"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/alpine-run-365610/locations/southamerica-west1/services/google-search4","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search4-4gtds7hkyq-tl.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search4-00008-ved","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2024-05-27T10:58:11.416776541Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://southamerica-west1-alpine-run-365610.cloudfunctions.net/google_search4","createTime":"2024-05-26T12:45:41.193820710Z"},{"name":"projects/alpine-run-365610/locations/us-central1/functions/selenium","buildConfig":{"build":"projects/120658363028/locations/us-central1/builds/8b6be793-9baf-4e40-a581-feeb6adc5955","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-us-central1","object":"selenium/function-source.zip","generation":"1715859171912791"}},"dockerRepository":"projects/alpine-run-365610/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-us-central1","object":"selenium/function-source.zip","generation":"1715859171912791"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/alpine-run-365610/locations/us-central1/services/selenium","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://selenium-4gtds7hkyq-uc.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"2Gi","allTrafficOnLatestRevision":true,"revision":"selenium-00004-yiw","maxInstanceRequestConcurrency":1000,"availableCpu":"1000m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.768746776Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://us-central1-alpine-run-365610.cloudfunctions.net/selenium","createTime":"2024-05-16T09:29:45.186114942Z"},{"name":"projects/alpine-run-365610/locations/us-west1/functions/google_search5","buildConfig":{"build":"projects/120658363028/locations/us-west1/builds/ede26b7b-ba5f-4480-b092-be068d997e72","runtime":"python310","entryPoint":"main","source":{"storageSource":{"bucket":"gcf-v2-sources-120658363028-us-west1","object":"google_search5/function-source.zip","generation":"1716807468044442"}},"dockerRepository":"projects/alpine-run-365610/locations/us-west1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-120658363028-us-west1","object":"google_search5/function-source.zip","generation":"1716807468044442"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/alpine-run-365610/locations/us-west1/services/google-search5","timeoutSeconds":60,"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://google-search5-4gtds7hkyq-uw.a.run.app","serviceAccountEmail":"alpine-run-365610@appspot.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"google-search5-00007-kub","maxInstanceRequestConcurrency":1,"availableCpu":"167m"},"state":"ACTIVE","updateTime":"2025-10-15T16:24:15.780412609Z","labels":{"deployment-tool":"console-cloud"},"environment":"GEN_2","url":"https://us-west1-alpine-run-365610.cloudfunctions.net/google_search5","createTime":"2024-05-26T13:04:46.767718207Z"}]}
+[info] i  functions: ensuring required API cloudscheduler.googleapis.com is enabled... 
+[debug] [2026-02-15T03:34:17.537Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:17.537Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:17.538Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com [none]
+[debug] [2026-02-15T03:34:17.538Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com  x-goog-user-project=120658363028
+[debug] [2026-02-15T03:34:18.780Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com 200
+[debug] [2026-02-15T03:34:18.781Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com [omitted]
+[warn] !  functions: missing required API cloudscheduler.googleapis.com. Enabling now... 
+[debug] [2026-02-15T03:34:18.781Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:18.781Z] Checked if tokens are valid: true, expires at: 1771129539534
+[debug] [2026-02-15T03:34:18.782Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com:enable [none]
+[debug] [2026-02-15T03:34:18.782Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com:enable  x-goog-user-project=120658363028
+[debug] [2026-02-15T03:34:19.918Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com:enable 400
+[debug] [2026-02-15T03:34:19.919Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com:enable [omitted]
+[error] 
+[error] Error: Request to https://serviceusage.googleapis.com/v1/projects/120658363028/services/cloudscheduler.googleapis.com:enable had HTTP Error: 400, Billing account for project '120658363028' is not open. Billing must be enabled for activation of service(s) 'cloudscheduler.googleapis.com' to proceed.
+Help Token: AcxmRmJLdtaxqmPRwCJkW1kdB1ZWLKqig9Qy_tA3QaDW0c-bKCha-EI4nnHw0EtMQkGPDv_FcMZ5B257MBIkFnxkAZzymyPYnrT2hv1AOBH8RrV_
+[debug] [2026-02-15T03:34:19.921Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 400,
+      "message": "Billing account for project '120658363028' is not open. Billing must be enabled for activation of service(s) 'cloudscheduler.googleapis.com' to proceed.\nHelp Token: AcxmRmJLdtaxqmPRwCJkW1kdB1ZWLKqig9Qy_tA3QaDW0c-bKCha-EI4nnHw0EtMQkGPDv_FcMZ5B257MBIkFnxkAZzymyPYnrT2hv1AOBH8RrV_",
+      "status": "FAILED_PRECONDITION",
+      "details": [
+        {
+          "@type": "type.googleapis.com/google.rpc.PreconditionFailure",
+          "violations": [
+            {
+              "type": "googleapis.com/billing-enabled",
+              "subject": "?error_code=390002&project=120658363028&services=cloudscheduler.googleapis.com"
+            }
+          ]
+        },
+        {
+          "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+          "reason": "UREQ_PROJECT_BILLING_NOT_OPEN",
+          "domain": "serviceusage.googleapis.com/billing-enabled",
+          "metadata": {
+            "project": "120658363028",
+            "services": "cloudscheduler.googleapis.com"
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "statusCode": 400
+  }
+}
