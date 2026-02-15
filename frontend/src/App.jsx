@@ -99,7 +99,32 @@ function App() {
   };
 
   if (loading) {
-    return <div className="loading">Initializing Dashboard...</div>;
+    return (
+      <div className="dashboard-container">
+        <div className="loading">
+          <div className="spinner"></div>
+          <p>Initializing FX Intelligence...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (rates.length === 0) {
+    return (
+      <div className="dashboard-container">
+        <header>
+          <h1>FX Intelligence</h1>
+        </header>
+        <div className="card" style={{ textAlign: 'center', padding: '100px 20px' }}>
+          <Activity size={48} style={{ marginBottom: '20px', color: 'var(--text-secondary)', opacity: 0.5 }} />
+          <h3>No Market Data Available</h3>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '400px', margin: '10px auto' }}>
+            The market might be closed or the data fetcher is currently initializing.
+            Data will appear here automatically once recorded.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (

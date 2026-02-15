@@ -48,13 +48,29 @@ async function fetchAndSave() {
         }
 
         const currentPrice = (parseFloat(tickerData.ask) + parseFloat(tickerData.bid)) / 2;
-        const timestamp = admin.firestore.Timestamp.now();
+        const apiTimestamp = tickerData.timestamp;
+
+        // 市場が閉じているかチェック
+        if (tickerData.status === "CLOSE") {
+            console.log(`Skipping update: Market is closed (${symbol} status: CLOSE)`);
+            process.exit(0);
+        }
 
         const snapshot = await db.collection("rates")
             .where("symbol", "==", symbol)
             .orderBy("timestamp", "desc")
             .limit(20)
             .get();
+
+        const latestDoc = snapshot.docs[0];
+        if (latestDoc) {
+            const lastData = latestDoc.data();
+            // 価格とAPIのタイムスタンプが両方同じならスキップ
+            if (lastData.price === currentPrice && lastData.apiTimestamp === apiTimestamp) {
+                console.log(`Skipping update: Price and timestamp haven't changed (${currentPrice})`);
+                process.exit(0);
+            }
+        }
 
         const historicalPrices = snapshot.docs.map(doc => doc.data().price).reverse();
         historicalPrices.push(currentPrice);
@@ -65,7 +81,8 @@ async function fetchAndSave() {
             symbol: symbol,
             price: currentPrice,
             rsi: rsi,
-            timestamp: timestamp
+            apiTimestamp: apiTimestamp,
+            timestamp: admin.firestore.Timestamp.now()
         });
 
         console.log(`Successfully saved price: ${currentPrice}, RSI: ${rsi}`);
