@@ -34,26 +34,15 @@ function calculateRSI(prices, period = 14) {
     return lastRSI;
 }
 
-async function fetchAndSave() {
-    const symbol = "USD_JPY";
-    const API_ENDPOINT = "https://forex-api.coin.z.com/public/v1/ticker";
-
+async function processSymbol(symbol, tickerData) {
     try {
-        const response = await axios.get(API_ENDPOINT);
-        const tickerData = response.data.data.find(d => d.symbol === symbol);
-
-        if (!tickerData) {
-            console.error("USD_JPY data not found");
-            process.exit(1);
-        }
-
         const currentPrice = (parseFloat(tickerData.ask) + parseFloat(tickerData.bid)) / 2;
         const apiTimestamp = tickerData.timestamp;
 
         // 市場が閉じているかチェック
         if (tickerData.status === "CLOSE") {
-            console.log(`Skipping update: Market is closed (${symbol} status: CLOSE)`);
-            process.exit(0);
+            // console.log(`Skipping ${symbol}: Market is closed`);
+            return;
         }
 
         const snapshot = await db.collection("rates")
@@ -65,10 +54,9 @@ async function fetchAndSave() {
         const latestDoc = snapshot.docs[0];
         if (latestDoc) {
             const lastData = latestDoc.data();
-            // 価格とAPIのタイムスタンプが両方同じならスキップ
             if (lastData.price === currentPrice && lastData.apiTimestamp === apiTimestamp) {
-                console.log(`Skipping update: Price and timestamp haven't changed (${currentPrice})`);
-                process.exit(0);
+                // console.log(`Skipping ${symbol}: Price and timestamp haven't changed`);
+                return;
             }
         }
 
@@ -85,9 +73,40 @@ async function fetchAndSave() {
             timestamp: admin.firestore.Timestamp.now()
         });
 
-        console.log(`Successfully saved price: ${currentPrice}, RSI: ${rsi}`);
+        console.log(`Saved ${symbol}: ${currentPrice}, RSI: ${rsi}`);
     } catch (error) {
-        console.error("Error:", error);
+        console.error(`Error processing ${symbol}:`, error);
+    }
+}
+
+async function fetchAndSave() {
+    const API_ENDPOINT = "https://forex-api.coin.z.get/public/v1/ticker"; // Note: Actual endpoint below
+    const REAL_API_ENDPOINT = "https://forex-api.coin.z.com/public/v1/ticker";
+
+    try {
+        const response = await axios.get(REAL_API_ENDPOINT);
+        const allTickerData = response.data.data;
+
+        if (!allTickerData || allTickerData.length === 0) {
+            console.error("No ticker data found");
+            process.exit(1);
+        }
+
+        // 全シンボルのリストを取得
+        const symbols = allTickerData.map(d => d.symbol);
+
+        // 各シンボルを並列処理
+        await Promise.all(allTickerData.map(data => processSymbol(data.symbol, data)));
+
+        // メタ情報を更新
+        await db.collection("meta").doc("symbols").set({
+            list: symbols,
+            lastUpdated: admin.firestore.Timestamp.now()
+        });
+
+        console.log("Fetcher cycle completed successfully");
+    } catch (error) {
+        console.error("Fetcher error:", error);
         process.exit(1);
     }
 }
